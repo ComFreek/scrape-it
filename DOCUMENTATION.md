@@ -14,6 +14,25 @@ A scraping module for humans.
 #### Return
 - **Promise** A promise object.
 
+### `scrapeIt.fromStream(stream, opts)`
+
+Scrapes the data from a Node.js ReadableStream of HTML data.
+
+This function feeds the employed DOM parser chunk by chunk and therefore avoids
+fully buffering the HTML in memory.<br>
+It is functionally equivalent to first accumulating the stream data in a
+string `str` and then calling `scrapeIt(str, opts)` on it.
+
+#### Params
+
+- **Object** `stream`: A [Node.js ReadableStream](https://nodejs.org/api/stream.html#stream_readable_streams).
+- **Object** `opts`: The options passed to `scrapeHTML` method.
+
+#### Return
+- **Promise** A promise object which resolves with the scraped data on success
+  and rejects on error.
+
+
 ### `scrapeIt.scrapeHTML($, opts)`
 Scrapes the data in the provided element.
 
