@@ -18,8 +18,8 @@ A scraping module for humans.
 
 Scrapes the data from a Node.js ReadableStream of HTML data.
 
-This function feeds the employed DOM parser chunk by chunk and therefore avoids
-fully buffering the HTML in memory.<br>
+This function directly pipes the passed stream to htmlparser2 and therefore
+avoids fully buffering the HTML in memory.
 It is functionally equivalent to first accumulating the stream data in a
 string `str` and then calling `scrapeIt(str, opts)` on it.
 
